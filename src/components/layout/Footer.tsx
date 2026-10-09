@@ -15,8 +15,6 @@ export default function Footer() {
   const focusLinks = [
     { label: "Aerospace", href: "/businesses#aerospace" },
     { label: "Defence", href: "/businesses#defence" },
-    { label: "Advanced Systems", href: "/businesses#advanced-systems" },
-    { label: "Petrochemical", href: "/businesses#petrochemical" },
   ];
 
   const socialLinks = [
@@ -24,7 +22,7 @@ export default function Footer() {
       label: "Instagram",
       href: "https://instagram.com",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="url(#footerSocialIconLogoBlue)" aria-hidden="true">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
         </svg>
       ),
@@ -33,7 +31,7 @@ export default function Footer() {
       label: "YouTube",
       href: "https://youtube.com",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="url(#footerSocialIconLogoBlue)" aria-hidden="true">
           <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
         </svg>
       ),
@@ -42,7 +40,7 @@ export default function Footer() {
       label: "LinkedIn",
       href: "https://linkedin.com",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="url(#footerSocialIconLogoBlue)" aria-hidden="true">
           <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
         </svg>
       ),
@@ -51,7 +49,7 @@ export default function Footer() {
       label: "Facebook",
       href: "https://facebook.com",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="url(#footerSocialIconLogoBlue)" aria-hidden="true">
           <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 4 16.5 4H18V0h-3.808C9.59 0 9 3.585 9 6.056V8z" />
         </svg>
       ),
@@ -60,7 +58,7 @@ export default function Footer() {
       label: "X",
       href: "https://x.com",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="url(#footerSocialIconLogoBlue)" aria-hidden="true">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       ),
@@ -69,7 +67,7 @@ export default function Footer() {
       label: "TikTok",
       href: "https://tiktok.com",
       icon: (
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="url(#footerSocialIconLogoBlue)" aria-hidden="true">
           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 3.2-4.41V9.44a6.34 6.34 0 0 0-2.36-.44 6.34 6.34 0 1 0 6.34 6.34V8.58a8.21 8.21 0 0 0 5.24 1.58V6.69z" />
         </svg>
       ),
@@ -95,6 +93,18 @@ export default function Footer() {
 
             {/* Social Icons - Strictly in ONE Single Line */}
             <div className="space-y-2 sm:space-y-3 pt-2 sm:pt-6 lg:pt-12 mt-auto">
+              {/* Hidden Global SVG Gradient Definition for Social Icons */}
+              <svg width="0" height="0" className="absolute pointer-events-none w-0 h-0" aria-hidden="true">
+                <defs>
+                  <linearGradient id="footerSocialIconLogoBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#7ec8ff" />
+                    <stop offset="30%" stopColor="#48a2f0" />
+                    <stop offset="70%" stopColor="#247bc4" />
+                    <stop offset="100%" stopColor="#1a64a0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
               <h4 className="text-[10px] font-mono font-semibold tracking-[0.25em] sm:tracking-[0.3em] uppercase text-slate-500">
                 SOCIAL
               </h4>
@@ -107,7 +117,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={item.label}
                     title={item.label}
-                    className="text-[#5aa9f7] hover:text-white transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(90,169,247,0.7)] cursor-pointer select-none shrink-0 p-0.5 sm:p-1"
+                    className="transition-all duration-300 hover:scale-125 hover:brightness-125 cursor-pointer select-none shrink-0 p-0.5 sm:p-1"
                   >
                     {item.icon}
                   </a>
@@ -174,18 +184,19 @@ export default function Footer() {
           aria-label="SKY WARDENS"
         >
           <defs>
-            {/* Top Half Solid Gradient: SKY (Royal Blue Sheen) */}
+            {/* Top Half Solid Gradient: SKY (Royal Blue Sheen - Lighter Tone) */}
             <linearGradient id="footerSkyBlueTop" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#70b9ff" />
-              <stop offset="50%" stopColor="#257dc0" />
-              <stop offset="100%" stopColor="#124b80" />
+              <stop offset="0%" stopColor="#7ec8ff" />
+              <stop offset="30%" stopColor="#48a2f0" />
+              <stop offset="70%" stopColor="#247bc4" />
+              <stop offset="100%" stopColor="#1a64a0" />
             </linearGradient>
 
-            {/* Top Half Solid Gradient: WARDENS (Titanium Steel Sheen) */}
+            {/* Top Half Solid Gradient: WARDENS (Titanium Steel Sheen - Lighter Tone) */}
             <linearGradient id="footerWardensSteelTop" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="40%" stopColor="#f1f5f9" />
-              <stop offset="80%" stopColor="#cbd5e1" />
+              <stop offset="35%" stopColor="#f1f5f9" />
+              <stop offset="70%" stopColor="#cbd5e1" />
               <stop offset="100%" stopColor="#94a3b8" />
             </linearGradient>
 
@@ -236,36 +247,36 @@ export default function Footer() {
             {/* BOTTOM HALF: High-Impact Authentic Stealth Jet Photo */}
             <g clipPath="url(#footerBottomHalfClip)">
               <image
-                href="/images/stealth-runway-real.jpg"
+                href="/images/footer-stealth-jet.jpg"
                 x="0"
-                y="10"
+                y="-10"
                 width="1000"
-                height="140"
+                height="160"
                 preserveAspectRatio="xMidYMid slice"
-                className="filter brightness-115 contrast-110"
+                className="filter brightness-105 contrast-105"
               />
+              {/* Subtle Natural Atmosphere Tint */}
               <rect
                 x="0"
                 y="88"
                 width="1000"
                 height="60"
                 fill="url(#footerBottomPhotoEnhance)"
-                style={{ mixBlendMode: "color-dodge" }}
-                opacity="0.6"
+                opacity="0.25"
               />
               <rect
                 x="0"
-                y="125"
+                y="130"
                 width="1000"
-                height="23"
+                height="18"
                 fill="#010308"
-                opacity="0.45"
+                opacity="0.5"
               />
             </g>
 
             {/* MIDLINE: Futuristic Tactical Laser Divider Horizon */}
-            <line x1="0" y1="88" x2="1000" y2="88" stroke="#38bdf8" strokeWidth="1.8" opacity="0.9" />
-            <line x1="0" y1="88" x2="1000" y2="88" stroke="#ffffff" strokeWidth="0.7" opacity="1" />
+            <line x1="0" y1="88" x2="1000" y2="88" stroke="#38bdf8" strokeWidth="1.5" opacity="0.85" />
+            <line x1="0" y1="88" x2="1000" y2="88" stroke="#ffffff" strokeWidth="0.6" opacity="0.9" />
           </g>
 
           {/* EXTERIOR: Sharp Bevel Outline for 3D Tactical Clarity */}

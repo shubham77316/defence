@@ -6,13 +6,46 @@ import { usePathname } from "next/navigation";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
 import { NAV_LINKS } from "@/data/navigation";
-import { Menu, X, ChevronDown, Shield, PhoneCall } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronLeft, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+import type { Variants } from "framer-motion";
+
+const navContainerVariants: Variants = {
+  hidden: {
+    width: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  visible: {
+    width: "auto",
+    opacity: 1,
+    transition: {
+      duration: 0.35,
+      staggerChildren: 0.04,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const navItemVariants: Variants = {
+  hidden: { opacity: 0, x: 20, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.28 },
+  },
+};
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isDrawerExpanded, setIsDrawerExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +55,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Close mobile menu and drawer on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
+    setIsDrawerExpanded(false);
   }, [pathname]);
+
+  const slidingNavLinks = NAV_LINKS.filter((item) => item.label !== "Contact");
 
   return (
     <header
@@ -40,92 +76,140 @@ export default function Navbar() {
         {/* Brand Logo */}
         <Logo size="md" showSectorsList />
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2 mt-0.5">
-          {NAV_LINKS.map((item) => {
-            const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
-            const hasChildren = item.children && item.children.length > 0;
-
-            if (hasChildren) {
-              return (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <Link
-                    href={item.href}
-                    className={`px-3.5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.15em] transition-all flex items-center gap-1 ${
-                      isActive
-                        ? "text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 shadow-[0_0_15px_rgba(0,229,255,0.15)]"
-                        : "text-slate-300 hover:text-white hover:bg-slate-900/60"
-                    }`}
-                  >
-                    <span>{item.label}</span>
-                    <ChevronDown className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform" />
-                  </Link>
-
-                  {/* Dropdown Menu */}
-                  {activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="glass-card rounded-2xl p-3 border border-cyan-500/30 shadow-2xl bg-slate-950/95 backdrop-blur-2xl">
-                        <div className="px-3 py-1.5 mb-2 border-b border-slate-800 flex items-center justify-between">
-                          <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
-                            Core Strategic Sectors
-                          </span>
-                          <Shield className="w-3 h-3 text-cyan-400" />
-                        </div>
-                        <div className="space-y-1">
-                          {item.children?.map((child) => (
-                            <Link
-                              key={child.label}
-                              href={child.href}
-                              className="block p-2.5 rounded-xl hover:bg-slate-900/80 hover:border-cyan-500/20 border border-transparent transition-all group"
-                            >
-                              <div className="text-xs font-semibold text-slate-200 group-hover:text-cyan-300 transition-colors">
-                                {child.label}
-                              </div>
-                              <div className="text-[11px] text-slate-400 mt-0.5 line-clamp-1">
-                                {child.description}
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            }
-
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`px-3.5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.15em] transition-all ${
-                  isActive
-                    ? "text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 shadow-[0_0_15px_rgba(0,229,255,0.15)]"
-                    : "text-slate-300 hover:text-white hover:bg-slate-900/60"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Right Action / CTA */}
-        <div className="hidden lg:flex items-center gap-3 mt-0.5">
-          <Button
-            href="/contact"
-            variant="secondary"
-            size="sm"
-            className="border-cyan-500/30 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,229,255,0.25)]"
-            icon={<PhoneCall className="w-3.5 h-3.5 text-cyan-400" />}
+        {/* Desktop Collapsible Navigation: < trigger button next to Contact expands menu leftwards on hover/arrow */}
+        <div className="hidden lg:flex items-center gap-3">
+          {/* Slide-out Navigation Drawer Container */}
+          <div
+            className="relative flex items-center"
+            onMouseEnter={() => setIsDrawerExpanded(true)}
+            onMouseLeave={() => {
+              setIsDrawerExpanded(false);
+              setActiveDropdown(null);
+            }}
           >
-            Contact Sky Wardens
-          </Button>
+            {/* Unified Sleek Expanding Pill */}
+            <div className="flex items-center bg-[#040814]/95 backdrop-blur-xl border border-cyan-500/35 hover:border-cyan-400/60 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.85)] transition-colors duration-300 overflow-visible">
+              {/* Left-sliding Nav Items Emerging from Menu */}
+              <AnimatePresence>
+                {isDrawerExpanded && (
+                  <motion.nav
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={navContainerVariants}
+                    className="flex items-center gap-3.5 xl:gap-5 pl-5 pr-2 py-1.5 select-none whitespace-nowrap overflow-visible"
+                  >
+                    {slidingNavLinks.map((item) => {
+                      const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+                      const hasChildren = item.children && item.children.length > 0;
+                      const isExternal = item.badge === "external" || item.label === "E-Shop";
+
+                      if (hasChildren) {
+                        return (
+                          <motion.div
+                            key={item.label}
+                            variants={navItemVariants}
+                            className="relative group"
+                            onMouseEnter={() => setActiveDropdown(item.label)}
+                            onMouseLeave={() => setActiveDropdown(null)}
+                          >
+                            <button
+                              type="button"
+                              className={`flex items-center gap-1 text-[13px] xl:text-sm font-medium tracking-wide transition-colors py-1 ${
+                                isActive ? "text-cyan-400" : "text-slate-200 hover:text-cyan-400"
+                              }`}
+                            >
+                              <span>{item.label}</span>
+                              <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 group-hover:rotate-180 transition-transform duration-200" />
+                            </button>
+
+                            {/* Dropdown Card */}
+                            {activeDropdown === item.label && (
+                              <div className="absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                                <div className="w-64 rounded-xl p-2 border border-slate-800 bg-slate-950/95 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+                                  <div className="space-y-1">
+                                    {item.children?.map((child) => (
+                                      <Link
+                                        key={child.label}
+                                        href={child.href}
+                                        className="block px-3 py-2 rounded-lg hover:bg-slate-900/90 transition-colors group/item"
+                                      >
+                                        <div className="text-xs font-medium text-slate-200 group-hover/item:text-cyan-300">
+                                          {child.label}
+                                        </div>
+                                        <div className="text-[10.5px] text-slate-400 mt-0.5 line-clamp-1">
+                                          {child.description}
+                                        </div>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </motion.div>
+                        );
+                      }
+
+                      if (isExternal) {
+                        return (
+                          <motion.a
+                            key={item.label}
+                            variants={navItemVariants}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 text-[13px] xl:text-sm font-medium tracking-wide text-slate-200 hover:text-cyan-400 transition-colors py-1 group"
+                          >
+                            <span>{item.label}</span>
+                            <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 transition-colors" />
+                          </motion.a>
+                        );
+                      }
+
+                      return (
+                        <motion.div key={item.label} variants={navItemVariants}>
+                          <Link
+                            href={item.href}
+                            className={`text-[13px] xl:text-sm font-medium tracking-wide transition-colors py-1 ${
+                              isActive ? "text-cyan-400" : "text-slate-200 hover:text-cyan-400"
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.nav>
+                )}
+              </AnimatePresence>
+
+              {/* The "<" Trigger Button */}
+              <button
+                type="button"
+                onClick={() => setIsDrawerExpanded((prev) => !prev)}
+                className={`flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full transition-all duration-300 select-none cursor-pointer ${
+                  isDrawerExpanded
+                    ? "text-cyan-400 bg-cyan-950/40"
+                    : "text-slate-300 hover:text-cyan-300 hover:bg-cyan-950/30"
+                }`}
+                aria-label="Toggle Navigation Options"
+                title="Hover or click to open menu"
+              >
+                <ChevronLeft className={`w-4 h-4 transition-transform duration-300 ${isDrawerExpanded ? "rotate-180 text-cyan-300" : "text-cyan-400"}`} />
+                <span className="text-[11px] font-mono tracking-wider font-semibold uppercase">
+                  {isDrawerExpanded ? "Close" : "Menu"}
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Contact Button (Outside capsule, completely free of overlap) */}
+          <Link
+            href="/contact"
+            className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-sky-500 to-cyan-400 text-slate-950 hover:from-sky-400 hover:to-cyan-300 transition-all duration-300 shadow-[0_2px_12px_rgba(56,189,248,0.3)] hover:shadow-[0_4px_20px_rgba(56,189,248,0.5)] hover:scale-105 active:scale-95 whitespace-nowrap shrink-0"
+          >
+            Contact
+          </Link>
         </div>
 
         {/* Mobile Hamburger Button & Action */}

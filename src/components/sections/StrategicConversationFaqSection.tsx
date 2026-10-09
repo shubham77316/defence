@@ -18,7 +18,7 @@ const FAQ_ITEMS: FaqItem[] = [
     num: "01",
     question: "What sectors does Sky Wardens operate in?",
     answer:
-      "Sky Wardens operates across four core strategic domains: Aerospace (unmanned aerial platforms and flight guidance systems), Defence (tactical survivability and kinetic systems), Advanced Systems (perimeter detection and autonomous ground electronics), and Petrochemical (military-grade synthetic lubricants and high-shear industrial formulations).",
+      "Sky Wardens operates across two core strategic domains: Aerospace (unmanned aerial platforms, autonomous flight systems, and sovereign airframes) and Defence (tactical survivability, multi-layered kinetic platforms, and protective architectures).",
   },
   {
     id: "faq-2",
@@ -46,11 +46,7 @@ export default function StrategicConversationFaqSection() {
   return (
     <section className="relative bg-[#000208] text-white pt-6 sm:pt-10 pb-12 sm:pb-16 overflow-hidden border-t border-white/5">
       
-      {/* Ambient Blue/Purple Wave Aura on the Sides (Matching Reference Image) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-between">
-        <div className="w-[320px] sm:w-[480px] h-full bg-[radial-gradient(ellipse_at_left,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-3xl" />
-        <div className="w-[320px] sm:w-[480px] h-full bg-[radial-gradient(ellipse_at_right,rgba(99,102,241,0.08)_0%,transparent_70%)] blur-3xl" />
-      </div>
+
 
       <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-14">
         
@@ -59,9 +55,15 @@ export default function StrategicConversationFaqSection() {
         {/* ========================================================= */}
         <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3 pb-4 sm:pb-6">
           
-          {/* Tag */}
-          <div className="text-[11px] font-mono tracking-[0.3em] text-sky-400 uppercase font-semibold">
-            CONTACT
+          {/* Clean Modern White Tag */}
+          <div className="flex items-center justify-center space-x-3 select-none">
+            <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-white/30" />
+            <span className="w-1.5 sm:w-2 h-[1.5px] bg-white/60" />
+            <span className="text-xs sm:text-[13px] font-sans font-semibold tracking-[0.22em] text-white uppercase">
+              CONTACT
+            </span>
+            <span className="w-1.5 sm:w-2 h-[1.5px] bg-white/60" />
+            <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-white/30" />
           </div>
 
           {/* Heading */}
@@ -74,20 +76,20 @@ export default function StrategicConversationFaqSection() {
               aria-label="START A STRATEGIC CONVERSATION"
             >
               <defs>
-                {/* Exact Logo Shield Tactical Royal Blue Static Metallic Gradient */}
+                {/* Brand Logo Shield Light Radiant Blue Sheen */}
                 <linearGradient id="stratLogoShieldBlueSheen" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#5aa9f7" />
-                  <stop offset="28%" stopColor="#257dc0" />
-                  <stop offset="65%" stopColor="#124b80" />
-                  <stop offset="100%" stopColor="#0a2a4e" />
+                  <stop offset="0%" stopColor="#93d5ff" />
+                  <stop offset="30%" stopColor="#5bb4f8" />
+                  <stop offset="70%" stopColor="#288ee0" />
+                  <stop offset="100%" stopColor="#1a68aa" />
                 </linearGradient>
 
-                {/* Exact Logo Fighter Jet Titanium / Ice Steel Static Gradient */}
+                {/* Titanium White Steel Radiant Gradient */}
                 <linearGradient id="stratLogoTitaniumSteelSheen" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stopColor="#ffffff" />
-                  <stop offset="30%" stopColor="#e2e8f0" />
-                  <stop offset="65%" stopColor="#94a3b8" />
-                  <stop offset="100%" stopColor="#64748b" />
+                  <stop offset="35%" stopColor="#f1f5f9" />
+                  <stop offset="70%" stopColor="#cbd5e1" />
+                  <stop offset="100%" stopColor="#94a3b8" />
                 </linearGradient>
               </defs>
 

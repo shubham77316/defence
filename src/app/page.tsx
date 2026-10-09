@@ -6,7 +6,9 @@ import BusinessesSection from "@/components/sections/BusinessesSection";
 import PlatformShowcaseSection from "@/components/sections/PlatformShowcaseSection";
 import PartnershipsSection from "@/components/sections/PartnershipsSection";
 import NewsInsightsSection from "@/components/sections/NewsInsightsSection";
+import StrategicCtaBannerSection from "@/components/sections/StrategicCtaBannerSection";
 import StrategicConversationFaqSection from "@/components/sections/StrategicConversationFaqSection";
+import BreakingNewsTickerSection from "@/components/sections/BreakingNewsTickerSection";
 
 export default function HomePage() {
   return (
@@ -32,8 +34,14 @@ export default function HomePage() {
       {/* 6. The Newsroom / News & Insights */}
       <NewsInsightsSection />
 
-      {/* 7. Strategic Conversation & FAQ */}
+      {/* 7. Strategic Vision CTA Banner (Data Only — No Robot Image) */}
+      <StrategicCtaBannerSection />
+
+      {/* 8. Strategic Conversation & FAQ */}
       <StrategicConversationFaqSection />
+
+      {/* 9. Live Breaking News / Spotlight Ticker */}
+      <BreakingNewsTickerSection />
     </div>
   );
 }

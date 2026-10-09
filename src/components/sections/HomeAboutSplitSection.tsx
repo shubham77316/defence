@@ -13,8 +13,8 @@ export default function HomeAboutSplitSection() {
     {
       id: "01",
       tag: "SECTORS",
-      value: "04",
-      desc: "Aerospace, Defence, Advanced Systems, and Petrochemical.",
+      value: "02",
+      desc: "Aerospace and Defence.",
       image: "/images/foundation-sectors.jpg",
     },
     {
@@ -57,14 +57,14 @@ export default function HomeAboutSplitSection() {
               className="flex flex-col items-center text-center space-y-3 sm:space-y-4 max-w-4xl mx-auto"
             >
               {/* Top Tag: OUR CAPABILITIES (Centered with Symmetric Lines) */}
-              <div className="flex items-center justify-center space-x-3">
-                <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-cyan-400/50" />
-                <span className="w-2 sm:w-2.5 h-[2px] bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
-                <span className="text-xs sm:text-sm font-mono tracking-[0.28em] text-cyan-400 font-bold uppercase">
+              <div className="flex items-center justify-center space-x-3 select-none">
+                <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-white/30" />
+                <span className="w-1.5 sm:w-2 h-[1.5px] bg-white/60" />
+                <span className="text-xs sm:text-[13px] font-sans font-semibold tracking-[0.22em] text-white uppercase">
                   OUR CAPABILITIES
                 </span>
-                <span className="w-2 sm:w-2.5 h-[2px] bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
-                <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-cyan-400/50" />
+                <span className="w-1.5 sm:w-2 h-[1.5px] bg-white/60" />
+                <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-white/30" />
               </div>
 
               {/* Massive ABOUT US - Centered Typography with Clean Shadow (No Blue Glow) */}
@@ -92,115 +92,7 @@ export default function HomeAboutSplitSection() {
           {/* ========================================================================= */}
           {/* CAPABILITY GRID: ULTRA-WIDE & LOW-PROFILE RECTANGULAR BOXES                */}
           {/* ========================================================================= */}
-          <div className="relative w-full pt-1 pb-4">
-            
-            {/* Pure Robot Sitting Directly on the Box's Top Border with Zero Gap */}
-            <div className="hidden xl:block absolute left-4 2xl:left-8 top-1 -translate-y-[calc(100%-1px)] pointer-events-none select-none z-20">
-              <motion.div
-                style={{ transformOrigin: "bottom center" }}
-                animate={{
-                  rotate: [-0.6, 0.6, -0.6],
-                  scale: [1, 1.008, 1],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative w-[340px] 2xl:w-[380px] aspect-[6016/4016]"
-              >
-                {/* 1. Pure High-Resolution Transparent Robot PNG - Ultra Full HD */}
-                <Image
-                  src="/images/robot-sentinel.png"
-                  alt="Autonomous Defense Sentinel Robot"
-                  fill
-                  quality={100}
-                  unoptimized
-                  className="object-contain object-bottom drop-shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
-                  priority
-                />
-
-                {/* 2. SVG Overlay for Exact Eye Shape Blinking Animation */}
-                <svg
-                  viewBox="0 0 6016 4016"
-                  className="absolute inset-0 w-full h-full pointer-events-none"
-                  aria-hidden="true"
-                >
-                  <defs>
-                    <filter id="robotEyeGlow" x="-50%" y="-50%" width="200%" height="200%">
-                      <feGaussianBlur stdDeviation="30" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
-
-                  {/* Left Eye: Cybernetic Glow Pulse (matches exact eye shape) */}
-                  <motion.path
-                    d="M 3370 980 L 3480 995 L 3595 1040 L 3705 1085 L 3735 1115 L 3720 1145 L 3675 1175 L 3600 1205 L 3465 1205 L 3405 1160 L 3380 1055 Z"
-                    fill="#67e8f9"
-                    filter="url(#robotEyeGlow)"
-                    animate={{
-                      opacity: [0.95, 0.95, 0.95, 0, 1, 0.9, 0, 0.95],
-                    }}
-                    transition={{
-                      duration: 4.6,
-                      repeat: Infinity,
-                      times: [0, 0.68, 0.70, 0.72, 0.74, 0.79, 0.81, 0.83],
-                      ease: "easeInOut",
-                    }}
-                  />
-
-                  {/* Left Eye: Eyelid Covering Exactly in Eye Shape on Blink */}
-                  <motion.path
-                    d="M 3370 980 L 3480 995 L 3595 1040 L 3705 1085 L 3735 1115 L 3720 1145 L 3675 1175 L 3600 1205 L 3465 1205 L 3405 1160 L 3380 1055 Z"
-                    fill="#b8bcc4"
-                    animate={{
-                      opacity: [0, 0, 0, 1, 0, 0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 4.6,
-                      repeat: Infinity,
-                      times: [0, 0.68, 0.70, 0.72, 0.74, 0.79, 0.81, 0.83],
-                      ease: "easeInOut",
-                    }}
-                  />
-
-                  {/* Right Eye: Cybernetic Glow Pulse (matches exact eye shape) */}
-                  <motion.path
-                    d="M 4010 1060 L 3975 1090 L 3940 1120 L 3940 1150 L 3950 1180 L 3960 1210 L 4000 1210 L 4005 1165 L 4015 1090 Z"
-                    fill="#67e8f9"
-                    filter="url(#robotEyeGlow)"
-                    animate={{
-                      opacity: [0.95, 0.95, 0.95, 0, 1, 0.9, 0, 0.95],
-                    }}
-                    transition={{
-                      duration: 4.6,
-                      repeat: Infinity,
-                      times: [0, 0.68, 0.70, 0.72, 0.74, 0.79, 0.81, 0.83],
-                      ease: "easeInOut",
-                    }}
-                  />
-
-                  {/* Right Eye: Eyelid Covering Exactly in Eye Shape on Blink */}
-                  <motion.path
-                    d="M 4010 1060 L 3975 1090 L 3940 1120 L 3940 1150 L 3950 1180 L 3960 1210 L 4000 1210 L 4005 1165 L 4015 1090 Z"
-                    fill="#b8bcc4"
-                    animate={{
-                      opacity: [0, 0, 0, 1, 0, 0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 4.6,
-                      repeat: Infinity,
-                      times: [0, 0.68, 0.70, 0.72, 0.74, 0.79, 0.81, 0.83],
-                      ease: "easeInOut",
-                    }}
-                  />
-                </svg>
-              </motion.div>
-            </div>
-
+          <div className="relative w-full pt-1 pb-0">
             {/* Wide Rectangular Box Container - Sleek Low Height & Expansive Width */}
             <div className="relative w-full border border-white/[0.12] bg-[#02050e]/60 backdrop-blur-md overflow-hidden rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
               {/* 3 Column Grid with Vertical Dividers */}
@@ -239,19 +131,14 @@ export default function HomeAboutSplitSection() {
                         className={`pointer-events-none absolute inset-0 bg-white ${sliderDirectionClass} transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] transform-gpu will-change-transform z-0`}
                       />
 
-                      {/* Index Stencil / Numeral */}
-                      <span className="relative z-10 font-oxanium text-sm sm:text-base font-bold tracking-widest text-cyan-400 group-hover:text-cyan-700 select-none transition-colors duration-700 ease-out mb-1 sm:mb-1.5">
-                        {item.id}
-                      </span>
-
-                      {/* Main Heading - Slow silky smooth transition to solid black on white background */}
+                      {/* Main Heading - Original Oxanium Font */}
                       <h4 className="relative z-10 font-oxanium text-sm sm:text-base lg:text-lg xl:text-xl font-bold uppercase tracking-wide text-white group-hover:text-slate-950 transition-colors duration-700 ease-out leading-tight w-full px-2 sm:px-4">
-                        {item.value} {item.tag} — {item.desc.split(",")[0]}
+                        {item.value} {item.tag}
                       </h4>
 
                       {/* Monospace Bracketed Subtitle - Slow silky smooth transition to dark slate on white background */}
                       <p className="mt-1.5 sm:mt-2 relative z-10 text-[10px] sm:text-[11px] lg:text-xs font-mono uppercase tracking-[0.14em] text-slate-400 group-hover:text-slate-700 transition-colors duration-700 ease-out leading-relaxed w-full max-w-md lg:max-w-xl px-2">
-                        [ {item.desc} ]
+                        [ {item.desc.replace(/\.$/, "")} ]
                       </p>
                     </motion.div>
                   );
@@ -269,7 +156,7 @@ export default function HomeAboutSplitSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 0.45, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full flex flex-col items-center text-center space-y-6 pt-2 max-w-3xl mx-auto"
+            className="w-full flex flex-col items-center text-center space-y-5 -mt-3 sm:-mt-5 max-w-3xl mx-auto"
           >
             {/* Narrative 2-Line Text */}
             <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed font-normal select-none text-center">

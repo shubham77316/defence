@@ -192,15 +192,12 @@ export default function SectorsInteractiveMatrix() {
 
                     {/* Middle / Right Content */}
                     <div className="flex-1 min-w-0">
-                      {/* Top Row: Title + SEC Badge + 3 Status Dots */}
+                      {/* Top Row: Title + 3 Status Dots */}
                       <div className="flex items-center justify-between gap-2 mb-1.5">
                         <div className="flex items-center gap-2 sm:gap-3">
                           <h3 className="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
                             {sector.title}
                           </h3>
-                          <span className="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded bg-[#0b1424] border border-cyan-500/30 text-cyan-300 font-semibold tracking-wider">
-                            SEC-{sector.number}
-                          </span>
                         </div>
 
                         {/* Top-Right Tactical Status Dots */}

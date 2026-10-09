@@ -21,20 +21,20 @@ export function SkyWardensWordmarkSvg({ className = "" }: { className?: string }
       aria-label="SKY WARDENS"
     >
       <defs>
-        {/* Exact Logo Shield Tactical Royal Blue Static Metallic Gradient */}
+        {/* Exact Logo Shield Tactical Royal Blue Static Metallic Gradient - Lighter Tone */}
         <linearGradient id="logoNavShieldBlueSheen" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#5aa9f7" />
-          <stop offset="28%" stopColor="#257dc0" />
-          <stop offset="65%" stopColor="#124b80" />
-          <stop offset="100%" stopColor="#0a2a4e" />
+          <stop offset="0%" stopColor="#7ec8ff" />
+          <stop offset="30%" stopColor="#48a2f0" />
+          <stop offset="70%" stopColor="#247bc4" />
+          <stop offset="100%" stopColor="#1a64a0" />
         </linearGradient>
 
-        {/* Exact Logo Fighter Jet Titanium / Ice Steel Static Gradient */}
+        {/* Exact Logo Fighter Jet Titanium / Ice Steel Static Gradient - Lighter Tone */}
         <linearGradient id="logoNavTitaniumSteelSheen" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="30%" stopColor="#e2e8f0" />
-          <stop offset="65%" stopColor="#94a3b8" />
-          <stop offset="100%" stopColor="#64748b" />
+          <stop offset="35%" stopColor="#f1f5f9" />
+          <stop offset="70%" stopColor="#cbd5e1" />
+          <stop offset="100%" stopColor="#94a3b8" />
         </linearGradient>
       </defs>
 
@@ -162,16 +162,12 @@ export default function Logo({
           <SkyWardensWordmarkSvg className={currentSize.wordmarkClass} />
         </div>
 
-        {/* 4 Sectors Horizontal Format starting directly from SKY WARDENS */}
+        {/* Sectors Horizontal Format starting directly from SKY WARDENS */}
         {showSectorsList && (
           <div className="flex items-center flex-wrap gap-x-1 sm:gap-x-2 gap-y-0.5 mt-0.5 sm:mt-1 select-none text-[8px] xs:text-[9.5px] sm:text-[11px] md:text-[11.5px] font-semibold text-slate-300 tracking-wider">
             <span className="hover:text-cyan-300 transition-colors whitespace-nowrap">Aerospace</span>
             <span className="text-white/30 font-normal px-0.5">/</span>
             <span className="hover:text-cyan-300 transition-colors whitespace-nowrap">Defence</span>
-            <span className="text-white/30 font-normal px-0.5">/</span>
-            <span className="hover:text-cyan-300 transition-colors whitespace-nowrap">Advanced Systems</span>
-            <span className="text-white/30 font-normal px-0.5">/</span>
-            <span className="hover:text-cyan-300 transition-colors whitespace-nowrap">Petrochemical</span>
           </div>
         )}
 
