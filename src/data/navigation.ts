@@ -14,49 +14,62 @@ export const NAV_LINKS: NavItem[] = [
   {
     label: "About",
     href: "/about",
-    description: "Our mission, strategic vision, and sovereign capability architecture."
-  },
-  {
-    label: "Businesses",
-    href: "/businesses",
-    description: "Specialized engineering across 4 strategic industrial sectors.",
+    description: "Our mission, strategic vision, and sovereign capability architecture.",
     children: [
       {
-        label: "01 — Aerospace",
-        href: "/businesses#aerospace",
-        description: "UAV platforms, aerial surveillance & autonomous flight control."
+        label: "About Us",
+        href: "/about",
+        description: "Founding purpose, sovereign commitment and capability architecture."
       },
       {
-        label: "02 — Defence",
-        href: "/businesses#defence",
-        description: "Tactical gear, protective systems & rugged field technologies."
+        label: "Mission & Vision",
+        href: "/about#mission",
+        description: "Long-term institutional horizon and strategic defence autonomy."
       },
       {
-        label: "03 — Advanced Systems",
-        href: "/businesses#advanced-systems",
-        description: "Detection, autonomous ground vehicles & perimeter defense."
-      },
-      {
-        label: "04 — Petrochemical",
-        href: "/businesses#petrochemical",
-        description: "Specialized industrial lubricants & engineered molecular materials."
+        label: "Group of Companies",
+        href: "/about#group",
+        description: "Integrated alliance of defence and aerospace engineering entities."
       }
     ]
   },
   {
-    label: "Capabilities",
-    href: "/capabilities",
-    description: "Core technological capabilities and precision engineering matrices."
+    label: "Products",
+    href: "/businesses",
+    description: "Sovereign aerospace systems and tactical defence solutions.",
+    children: [
+      {
+        label: "Aerospace Systems",
+        href: "/businesses#aerospace",
+        description: "Autonomous aerial platforms, tactical UAVs & surveillance suites."
+      },
+      {
+        label: "Defence Solutions",
+        href: "/businesses#defence",
+        description: "Tactical armor, survivability equipment and kinetic technologies."
+      }
+    ]
   },
   {
-    label: "Technology",
-    href: "/technology",
-    description: "Proprietary telemetry, edge compute, and sensor fusion suites."
-  },
-  {
-    label: "Partnerships",
+    label: "Affiliations",
     href: "/partnerships",
-    description: "Institutional collaboration and strategic ecosystem engagement."
+    description: "Institutional collaboration, sovereign research and strategic alliances."
+  },
+  {
+    label: "Careers",
+    href: "/careers",
+    description: "Join our mission-critical engineering and aerospace divisions."
+  },
+  {
+    label: "News",
+    href: "/news",
+    description: "Official releases, platform advancements and defence briefings."
+  },
+  {
+    label: "E-Shop",
+    href: "https://eshop.skywardens.com",
+    description: "Direct procurement portal for verified tactical and industrial supplies.",
+    badge: "external"
   },
   {
     label: "Contact",

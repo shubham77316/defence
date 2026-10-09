@@ -523,7 +523,7 @@ export default function PartnershipsPage() {
                 x: ["-50%", "0%"]
               }}
               transition={{
-                duration: 24,
+                duration: 48,
                 ease: "linear",
                 repeat: Infinity
               }}

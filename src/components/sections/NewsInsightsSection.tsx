@@ -36,26 +36,6 @@ const newsItems: NewsItem[] = [
     image: "/images/defence-systems-radar.jpg",
     href: "/news/defence-systems",
   },
-  {
-    id: "autonomous-telemetry",
-    title: "Autonomous telemetry & cyber architecture for next-gen command",
-    category: "TELEMETRY",
-    date: "JANUARY 2026",
-    description:
-      "Unified real-time tactical battlefield C4ISR networks, mission-critical encrypted comms, and resilient cyber mesh routing.",
-    image: "/images/hero-aerospace-hangar.jpg",
-    href: "/news/autonomous-telemetry",
-  },
-  {
-    id: "industrial-product-lines",
-    title: "Industrial product lines and operational market developments",
-    category: "INDUSTRIAL",
-    date: "DECEMBER 2025",
-    description:
-      "Scalable defense manufacturing facilities, heavy forging certifications, and sovereign supply chain modernization.",
-    image: "/images/industrial-proving-grounds.jpg",
-    href: "/news/industrial-product-lines",
-  },
 ];
 
 export default function NewsInsightsSection() {
@@ -78,9 +58,16 @@ export default function NewsInsightsSection() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center text-center space-y-2 sm:space-y-2.5 pb-5 sm:pb-7 select-none">
-          <span className="text-xs sm:text-sm font-mono tracking-[0.25em] text-cyan-400 font-bold uppercase block">
-            THE NEWSROOM
-          </span>
+          {/* Clean Modern White Tag */}
+          <div className="flex items-center justify-center space-x-3 select-none">
+            <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-white/30" />
+            <span className="w-1.5 sm:w-2 h-[1.5px] bg-white/60" />
+            <span className="text-xs sm:text-[13px] font-sans font-semibold tracking-[0.22em] text-white uppercase">
+              THE NEWSROOM
+            </span>
+            <span className="w-1.5 sm:w-2 h-[1.5px] bg-white/60" />
+            <span className="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-white/30" />
+          </div>
 
           <div className="w-full flex justify-center py-0.5">
             <svg
@@ -91,20 +78,20 @@ export default function NewsInsightsSection() {
               aria-label="NEWS & INSIGHTS"
             >
               <defs>
-                {/* Exact Logo Shield Tactical Royal Blue Static Metallic Gradient */}
+                {/* Brand Logo Shield Light Radiant Blue Sheen */}
                 <linearGradient id="newsLogoShieldBlueSheen" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#5aa9f7" />
-                  <stop offset="28%" stopColor="#257dc0" />
-                  <stop offset="65%" stopColor="#124b80" />
-                  <stop offset="100%" stopColor="#0a2a4e" />
+                  <stop offset="0%" stopColor="#93d5ff" />
+                  <stop offset="30%" stopColor="#5bb4f8" />
+                  <stop offset="70%" stopColor="#288ee0" />
+                  <stop offset="100%" stopColor="#1a68aa" />
                 </linearGradient>
 
-                {/* Exact Logo Fighter Jet Titanium / Ice Steel Static Gradient */}
+                {/* Titanium White Steel Radiant Gradient */}
                 <linearGradient id="newsLogoTitaniumSteelSheen" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stopColor="#ffffff" />
-                  <stop offset="30%" stopColor="#e2e8f0" />
-                  <stop offset="65%" stopColor="#94a3b8" />
-                  <stop offset="100%" stopColor="#64748b" />
+                  <stop offset="35%" stopColor="#f1f5f9" />
+                  <stop offset="70%" stopColor="#cbd5e1" />
+                  <stop offset="100%" stopColor="#94a3b8" />
                 </linearGradient>
               </defs>
 
@@ -127,109 +114,100 @@ export default function NewsInsightsSection() {
           <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_10px_#22d3ee] mt-0.5" />
         </div>
 
-        {/* 4-Image Seamless Expanding Accordion Gallery (Unobstructed Full Image View) */}
-        <div className="flex flex-col md:flex-row gap-0 w-full h-[360px] sm:h-[400px] md:h-[460px] lg:h-[490px] rounded-2xl md:rounded-3xl overflow-hidden border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.85)] divide-y md:divide-y-0 md:divide-x divide-white/10 transition-all duration-500 bg-[#050914]">
-          {newsItems.map((item, idx) => {
-            const isActive = activeId === item.id;
+        {/* 2-Image Seamless Expanding Accordion Gallery (Balanced Width) */}
+        <div className="max-w-4xl xl:max-w-[1120px] mx-auto w-full">
+          <div className="flex flex-col md:flex-row gap-0 w-full h-[320px] sm:h-[360px] md:h-[410px] lg:h-[440px] rounded-2xl md:rounded-3xl overflow-hidden border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.85)] divide-y md:divide-y-0 md:divide-x divide-white/10 transition-all duration-500 bg-[#050914]">
+            {newsItems.map((item, idx) => {
+              const isActive = activeId === item.id;
 
-            return (
-              <motion.div
-                key={item.id}
-                layout
-                onClick={() => setActiveId(item.id)}
-                onMouseEnter={() => setActiveId(item.id)}
-                transition={{
-                  layout: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
-                }}
-                className={`relative overflow-hidden cursor-pointer transition-all duration-500 ${
-                  isActive
-                    ? "flex-[3.8] md:flex-[3.5] shadow-[inset_0_0_40px_rgba(0,0,0,0.4)]"
-                    : "flex-[1] opacity-70 hover:opacity-100"
-                }`}
-              >
-                {/* Background Image Fill */}
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className={`object-cover object-center transition-transform duration-700 ${
-                    isActive ? "scale-100" : "scale-110 grayscale-[15%]"
-                  }`}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority={idx === 0}
-                  unoptimized
-                />
-
-                {/* Subtle Hover / Active Overlay */}
-                <div
-                  className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${
+              return (
+                <motion.div
+                  key={item.id}
+                  layout
+                  onClick={() => setActiveId(item.id)}
+                  onMouseEnter={() => setActiveId(item.id)}
+                  transition={{
+                    layout: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+                  }}
+                  className={`relative overflow-hidden cursor-pointer transition-all duration-500 ${
                     isActive
-                      ? "bg-transparent"
-                      : "bg-black/35 hover:bg-black/10"
+                      ? "flex-[2.8] md:flex-[2.6] shadow-[inset_0_0_40px_rgba(0,0,0,0.4)]"
+                      : "flex-[1] opacity-70 hover:opacity-100"
                   }`}
-                />
-
-                {/* Left Edge Subtle Contrast Gradient */}
-                <div className="absolute inset-y-0 left-0 w-24 sm:w-28 bg-gradient-to-r from-black/70 via-black/25 to-transparent pointer-events-none z-10" />
-
-                {/* Vertical Category Label at Start of Image (Top-aligned) */}
-                <div className="absolute left-3 sm:left-4 md:left-5 top-4 sm:top-5 z-20 flex flex-col items-center gap-3.5 pointer-events-none select-none">
-                  {/* Top Item Indicator / Number */}
-                  <span
-                    className={`text-[10px] sm:text-xs font-mono font-bold tracking-widest px-2 py-0.5 rounded backdrop-blur-md transition-all duration-300 ${
-                      isActive
-                        ? "text-cyan-400 bg-cyan-950/70 border border-cyan-500/40 shadow-[0_0_12px_rgba(34,211,238,0.25)]"
-                        : "text-white/60 bg-black/50 border border-white/10"
+                >
+                  {/* Background Image Fill */}
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className={`object-cover object-center transition-transform duration-700 ${
+                      isActive ? "scale-100" : "scale-110 grayscale-[15%]"
                     }`}
-                  >
-                    0{idx + 1}
-                  </span>
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={idx === 0}
+                    unoptimized
+                  />
 
-                  {/* Vertical Category Text */}
-                  <div className="flex items-center gap-2.5 [writing-mode:vertical-rl] rotate-180">
-                    <span
-                      className={`text-base sm:text-lg md:text-xl lg:text-2xl font-mono uppercase tracking-[0.25em] font-extrabold transition-all duration-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] ${
-                        isActive
-                          ? "text-cyan-400 drop-shadow-[0_0_16px_rgba(34,211,238,0.7)]"
-                          : "text-white/75"
-                      }`}
-                    >
-                      {item.category}
-                    </span>
-                    <span
-                      className={`w-8 sm:w-10 h-[2.5px] rounded-full transition-all duration-300 ${
-                        isActive
-                          ? "bg-cyan-400 shadow-[0_0_10px_#22d3ee]"
-                          : "bg-white/25"
-                      }`}
-                    />
+                  {/* Subtle Hover / Active Overlay */}
+                  <div
+                    className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${
+                      isActive
+                        ? "bg-transparent"
+                        : "bg-black/35 hover:bg-black/10"
+                    }`}
+                  />
+
+                  {/* Left Edge Subtle Contrast Gradient */}
+                  <div className="absolute inset-y-0 left-0 w-24 sm:w-28 bg-gradient-to-r from-black/70 via-black/25 to-transparent pointer-events-none z-10" />
+
+                  {/* Vertical Category Label at Start of Image (Top-aligned) */}
+                  <div className="absolute left-3 sm:left-4 md:left-5 top-5 sm:top-6 z-20 flex flex-col items-center gap-3.5 pointer-events-none select-none">
+                    {/* Vertical Category Text */}
+                    <div className="flex items-center gap-2.5 [writing-mode:vertical-rl] rotate-180">
+                      <span
+                        className={`text-base sm:text-lg md:text-xl lg:text-2xl font-mono uppercase tracking-[0.25em] font-extrabold transition-all duration-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] ${
+                          isActive
+                            ? "text-[#7ec8ff] drop-shadow-[0_0_16px_rgba(126,200,255,0.8)]"
+                            : "text-white/75"
+                        }`}
+                      >
+                        {item.category}
+                      </span>
+                      <span
+                        className={`w-8 sm:w-10 h-[2.5px] rounded-full transition-all duration-300 ${
+                          isActive
+                            ? "bg-[#7ec8ff] shadow-[0_0_10px_#7ec8ff]"
+                            : "bg-white/25"
+                        }`}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* 2-Line Data Overlay inside the Image (Dark Format, Compact Height, Minor Font) */}
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 6 }}
-                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute inset-x-0 bottom-0 z-20 bg-black/50 backdrop-blur-md border-t border-white/10 px-4 py-2 sm:px-5 sm:py-2.5 pointer-events-none select-none"
-                    >
-                      <div className="max-w-4xl pr-2">
-                        <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-white leading-snug line-clamp-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
-                          {item.title}
-                        </h3>
-                        <p className="text-[10px] sm:text-[11px] text-slate-200/90 leading-relaxed font-normal line-clamp-1 sm:line-clamp-2 mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
-                          {item.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+                  {/* 2-Line Data Overlay inside the Image (Dark Format, Compact Height, Minor Font) */}
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute inset-x-0 bottom-0 z-20 bg-black/50 backdrop-blur-md border-t border-white/10 px-4 py-2 sm:px-5 sm:py-2.5 pointer-events-none select-none"
+                      >
+                        <div className="max-w-3xl pr-2">
+                          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-white leading-snug line-clamp-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                            {item.title}
+                          </h3>
+                          <p className="text-[10px] sm:text-[11px] text-slate-200/90 leading-relaxed font-normal line-clamp-1 sm:line-clamp-2 mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+                            {item.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
       </div>

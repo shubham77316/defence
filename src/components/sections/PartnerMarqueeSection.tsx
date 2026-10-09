@@ -240,22 +240,19 @@ export default function PartnerMarqueeSection() {
       <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-[#010308] via-[#010308]/80 to-transparent z-20 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-[#010308] via-[#010308]/80 to-transparent z-20 pointer-events-none" />
 
-      {/* Moving Marquee Stream - Pure Logos (No Boxes) */}
+      {/* Moving Marquee Stream - Pure Logos (Smooth Slow Infinite Loop) */}
       <div className="flex overflow-hidden relative w-full items-center">
         <motion.div
-          className="flex items-center gap-10 sm:gap-16 lg:gap-20 flex-nowrap will-change-transform"
-          animate={{
-            x: ["0%", "-50%"],
-          }}
+          animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration: 55,
-            ease: "linear",
             repeat: Infinity,
+            repeatType: "loop",
+            ease: "linear",
+            duration: 35,
           }}
+          className="flex items-center gap-10 sm:gap-16 lg:gap-20 flex-nowrap will-change-transform py-1 pr-10 sm:pr-16 lg:pr-20"
         >
           {[
-            ...allMarqueeLogos,
-            ...allMarqueeLogos,
             ...allMarqueeLogos,
             ...allMarqueeLogos,
           ].map((item, idx) => {
@@ -263,7 +260,7 @@ export default function PartnerMarqueeSection() {
             return (
               <div
                 key={`partner-logo-${item.id}-${idx}`}
-                className="flex-shrink-0 flex items-center justify-center opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] cursor-pointer py-2"
+                className="flex-shrink-0 flex items-center justify-center opacity-75 hover:opacity-100 hover:scale-105 transition-all duration-300 filter drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] cursor-pointer py-2"
               >
                 <ItemComponent />
               </div>
